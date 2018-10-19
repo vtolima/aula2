@@ -81,7 +81,7 @@ public class UC01CadastrarLivro {
 		
 	}
 	/**
-	 * Objetivo - verificar o comportamento da aplicacao na inclusao de Livro com Titulo Em Branco
+	 * Objetivo - Verificar o comportamento da aplicacao na inclusao de Livro com Titulo Em Branco
 	 */
 	@Test
 	public void CT06CadastrarLivroComTituloBranco() {
@@ -98,7 +98,7 @@ public class UC01CadastrarLivro {
 		
 	}
 	/**
-	 * Objetivo - verificar o comportamento da aplicacao na inclusao de Livro com Titulo Nulo
+	 * Objetivo - Verificar o comportamento da aplicacao na inclusao de Livro com Titulo Nulo
 	 */
 	@Test
 	public void CT07CadastrarLivroComTituloNulo() {
@@ -114,7 +114,7 @@ public class UC01CadastrarLivro {
 		
 	}
 	/**
-	 * Objetivo - verificar o comportamento da aplicacao na inclusao de Livro com Titulo Nulo
+	 * Objetivo - Verificar o comportamento da aplicacao na inclusao de Livro com Titulo Nulo
 	 */
 	@Test
 	public void CT08CadastrarLivroComTituloNulo() {
@@ -127,7 +127,7 @@ public class UC01CadastrarLivro {
 		
 	}
 	/**
-	 * Objetivo - verificar o comportamento da aplicacao na inclusao de Livro com Autor em Branco
+	 * Objetivo - Verificar o comportamento da aplicacao na inclusao de Livro com Autor em Branco
 	 */
 	@Test
 	public void CT09CadastrarLivroComAutorBranco() {
@@ -142,7 +142,7 @@ public class UC01CadastrarLivro {
 		}
 	}
 	/**
-	 * Objetivo - verificar o comportamento da aplicacao na inclusao de Livro com Autor Nulo
+	 * Objetivo - Verificar o comportamento da aplicacao na inclusao de Livro com Autor Nulo
 	 */
 	@Test
 	public void CT10CadastrarLivroComAutorNulo() {
