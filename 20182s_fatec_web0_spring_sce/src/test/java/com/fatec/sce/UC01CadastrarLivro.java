@@ -1,7 +1,13 @@
 package com.fatec.sce;
 
 import static org.junit.Assert.*;
+
+import java.sql.SQLException;
+
 import org.junit.Test;
+
+import com.fatec.sce.model.DAOFactory;
+import com.fatec.sce.model.ILivroDAO;
 import com.fatec.sce.model.Livro;
 
 public class UC01CadastrarLivro {
@@ -156,6 +162,36 @@ public class UC01CadastrarLivro {
 			assertEquals("Autor invalido",e.getMessage());
 		}
 		
+	}
+	
+	
+	@Test
+	public void CT11CadastrarLivro_com_sucesso() {
+		// cenario
+		Livro umLivro = ObtemLivro.comDadosValidos();
+		DAOFactory mySQLFactory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		ILivroDAO livroDAO = mySQLFactory.getLivroDAO();
+		// acao
+		int codigoRetorno = livroDAO.adiciona(umLivro);
+		// verificacao
+		assertEquals(1, codigoRetorno);
+		livroDAO.exclui(umLivro.getIsbn());
+	}
+	
+	@Test
+	public void CT12CadastrarLivroComISBNJaCadastrado() {
+		try {
+			// cenario
+			Livro umLivro = new Livro();
+			DAOFactory mySQLFactory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+			ILivroDAO livroDAO = mySQLFactory.getLivroDAO();
+			// acao
+			umLivro = ObtemLivro.comDadosValidos();
+			livroDAO.adiciona(umLivro);
+		}
+		catch(RuntimeException e) {
+			assertEquals("Duplicate entry '121212' for key 'PRIMARY'", e.getMessage());
+		}
 	}
 	
 }
