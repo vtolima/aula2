@@ -206,7 +206,7 @@ public class UC09RegistrarEmprestimoDeLivro {
 		ServicoEmprestimo servico = new ServicoEmprestimo();
 		// acao
 		int quantDias = servico.devolucao(umEmprestimo);
-		// verificacao
+		// verificacaod
 		assertTrue(quantDias == 1); // data de devolucao 1
 	}
 	
