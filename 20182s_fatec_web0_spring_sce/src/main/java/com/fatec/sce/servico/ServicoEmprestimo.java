@@ -1,6 +1,7 @@
 package com.fatec.sce.servico;
 
 import org.joda.time.DateTime;
+import org.joda.time.Days;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import com.fatec.sce.model.Emprestimo;
@@ -15,7 +16,7 @@ public class ServicoEmprestimo {
 			Emprestimo emprestimo = new Emprestimo();
 			emprestimo.setLivro(livro);
 			emprestimo.setUsuario(usuario);
-			// data do emprestimo - data atual do sistema 
+			// data do emprestimo - data atual do sistema
 			DateTime dataAtual = new DateTime();
 			DateTimeFormatter fmt = DateTimeFormat.forPattern("YYYY/MM/dd");
 			emprestimo.setDataEmprestimo(dataAtual.toString(fmt));
@@ -24,5 +25,13 @@ public class ServicoEmprestimo {
 			emprestimo.setDataDevolucao(dataDevolucao.plusDays(8).toString(fmt));
 			return emprestimo;
 		}
+	}
+
+	public int devolucao(Emprestimo umEmprestimo) {
+		DateTime dataAtual = new DateTime();
+		DateTimeFormatter fmt = DateTimeFormat.forPattern("YYYY/MM/dd");
+		DateTime dataDevolucao = fmt.parseDateTime(umEmprestimo.getDataDevolucao());
+		int dias = Days.daysBetween(dataAtual, dataDevolucao).getDays();
+		return dias;
 	}
 }
